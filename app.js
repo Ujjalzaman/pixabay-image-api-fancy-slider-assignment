@@ -44,14 +44,20 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
+  let imageCount = 0;
+  let imageCountNum = document.getElementById("imageCount");
   element.classList.toggle('added');
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
+    imageCount = sliders.length;
+    imageCountNum.innerText = imageCount;
   }
   else {
     let deSelectImage = sliders.indexOf(img);
     sliders.splice(deSelectImage, 1);
+    imageCount = sliders.length;
+    imageCountNum.innerText = imageCount;
   }
 };
 
